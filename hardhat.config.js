@@ -1,4 +1,14 @@
+const { task } = require("hardhat/config");
+
 require("@nomicfoundation/hardhat-toolbox");
+
+
+task("accounts","Prints list of accounts",async(taskArgs,hre)=>{
+  const accounts = await hre.ethers.getSigners()
+  for(account of accounts){
+    console.log(account.address);
+  }
+})
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
